@@ -136,7 +136,7 @@ function nv_site_theme($contents, $full = true)
         'rel' => 'stylesheet',
         'href' => NV_STATIC_URL . NV_ASSETS_DIR . '/css/font-awesome.min.css'
     ];
-    if ($global_config['current_theme_type'] == 'r') {
+    if ($global_config['current_theme_type'] = 'r') {
         $html_links[] = [
             'rel' => 'stylesheet',
             'href' => NV_STATIC_URL . 'themes/' . $global_config['module_theme'] . '/css/bootstrap.min.css'
@@ -271,7 +271,7 @@ function nv_site_theme($contents, $full = true)
     $xtpl->assign('LOGO_SRC', NV_BASE_SITEURL . $global_config['site_logo']);
 
     if (empty($global_config['site_banner'])) {
-        $xtpl->assign('BANNER_SRC', NV_STATIC_URL . 'themes/' . $global_config['module_theme'] . '/images/header.png');
+        $xtpl->assign('BANNER_SRC', NV_STATIC_URL . 'themes/' . $global_config['module_theme'] . '/images/Hinhnencoder3.jpg');
     } else {
         $xtpl->assign('BANNER_SRC', NV_BASE_SITEURL . $global_config['site_banner']);
     }
