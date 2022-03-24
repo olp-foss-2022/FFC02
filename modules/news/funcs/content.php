@@ -379,19 +379,34 @@ if ($nv_Request->isset_request('contentid', 'get,post') and $fcheckss == $checks
             $rowcontent['layout_func'] = $nv_Request->get_title('layout_func', 'post', '');
         }
         // Xu ly anh minh hoa
-        $rowcontent['homeimgthumb'] = 0;
-        if (!nv_is_url($rowcontent['homeimgfile']) and nv_is_file($rowcontent['homeimgfile'], NV_UPLOADS_DIR . '/' . $module_upload)) {
-            $lu = strlen(NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/');
-            $rowcontent['homeimgfile'] = substr($rowcontent['homeimgfile'], $lu);
-            if (is_file(NV_ROOTDIR . '/' . NV_FILES_DIR . '/' . $module_upload . '/' . $rowcontent['homeimgfile'])) {
-                $rowcontent['homeimgthumb'] = 1;
-            } else {
-                $rowcontent['homeimgthumb'] = 2;
+        // $rowcontent['homeimgthumb'] = 0;
+        // if (!nv_is_url($rowcontent['homeimgfile']) and nv_is_file($rowcontent['homeimgfile'], NV_UPLOADS_DIR . '/' . $module_upload)) {
+        //     $lu = strlen(NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/');
+        //     $rowcontent['homeimgfile'] = substr($rowcontent['homeimgfile'], $lu);
+        //     if (is_file(NV_ROOTDIR . '/' . NV_FILES_DIR . '/' . $module_upload . '/' . $rowcontent['homeimgfile'])) {
+        //         $rowcontent['homeimgthumb'] = 1;
+        //     } else {
+        //         $rowcontent['homeimgthumb'] = 2;
+        //     }
+        // } elseif (nv_is_url($rowcontent['homeimgfile'])) {
+        //     $rowcontent['homeimgthumb'] = 3;
+        // } else {
+        //     $rowcontent['homeimgfile'] = '';
+        // }  
+        // Xu ly anh minh hoa
+        if (isset($_FILES, $_FILES['image'], $_FILES['image']['tmp_name']) and is_uploaded_file($_FILES['image']['tmp_name'])) {
+            // Khởi tạo Class upload
+            $upload = new NukeViet\Files\Upload($admin_info['allow_files_type'], $global_config['forbid_extensions'], $global_config['forbid_mimes'], NV_UPLOAD_MAX_FILESIZE, NV_MAX_WIDTH, NV_MAX_HEIGHT);
+            
+            // Thiết lập ngôn ngữ, nếu không có dòng này thì ngôn ngữ trả về toàn tiếng Anh
+            $upload->setLanguage($lang_global);
+            
+            // Tải file lên server
+            $upload_info = $upload->save_file($_FILES['image'], NV_UPLOADS_REAL_DIR.'/news', false, $global_config['nv_auto_resize']);
+            if(!$upload_info['error'])
+            {
+                $rowcontent['homeimgfile'] = '/nukeviet/uploads/news/'. $upload_info['basename'];
             }
-        } elseif (nv_is_url($rowcontent['homeimgfile'])) {
-            $rowcontent['homeimgthumb'] = 3;
-        } else {
-            $rowcontent['homeimgfile'] = '';
         }
 
         if (!array_key_exists($rowcontent['topicid'], $array_topic_module)) {

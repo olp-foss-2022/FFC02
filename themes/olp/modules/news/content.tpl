@@ -11,7 +11,7 @@
     <a class="btn btn-primary" href="{BASE_URL}&amp;contentid=0&checkss={ADD_CONTENT_CHECK_SESSION}">{LANG.add_content}</a>
 </div>
 <h2 class="text-center">{LANG.author_info}</h2>
-<form action="{FORM_ACTION}" method="post" onsubmit="formSubmit(event, this)">
+<form action="{FORM_ACTION}" method="post" enctype="multipart/form-data" onsubmit="formSubmit(event, this)">
     <input type="hidden" name="save" value="1" />
     <div class="table-responsive">
         <table id="edit" class="table table-striped table-bordered table-hover">
@@ -156,7 +156,7 @@ function formSubmit(event, form) {
 	<div class="form-group">
 		<label class="col-sm-8 control-label text-normal">{LANG.content_homeimg}:</label>
 		<div class="col-sm-16">
-			<input class="form-control" name="homeimgfile" id="homeimg" value="{DATA.homeimgfile}" type="text" />
+			<input class="form-control" name="image" id="image" type="file" />
 		</div>
 	</div>
 
