@@ -43,5 +43,3 @@ $sql_create_module[] = "CREATE TABLE `" . $db_config['prefix'] . "_" . $lang . "
     INDEX (tudien_id,fk_maloai),
     PRIMARY KEY (`tudien_id`)
 ) ENGINE=MyISAM";
-
-?>
