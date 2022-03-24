@@ -82,3 +82,5 @@ $lang_module['dictionary_desc'] = 'Mô tả';
 $lang_module['tu_name'] = 'Tên từ điển';
 $lang_module['tu_title'] = 'Thêm từ điển';
 $lang_module['loaitu_title'] = 'Thêm loại từ điển';
+$lang_module['add_tudien'] = 'Thêm từ điển';
+$lang_module['add_loaitudien'] = 'Thêm loại từ điển';

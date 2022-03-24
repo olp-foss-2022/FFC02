@@ -14,6 +14,7 @@ if (!defined('NV_IS_FILE_ADMIN')) {
 }
 
 $contents = [];
+$page_title = $lang_module['add_tudien'];
 
 $xtpl = new XTemplate('add_tu.tpl', NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/modules/' . $module_file);
 $xtpl->assign('LANG', $lang_module);
