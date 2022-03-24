@@ -27,8 +27,9 @@ $sql_create_module[] = 'CREATE TABLE ' . $db_config['prefix'] . '_' . $lang . '_
     `desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
     `createddate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `active` int(11) NOT NULL,
+    INDEX (loaitu_id),
     PRIMARY KEY (`loaitu_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+) ENGINE=MyISAM";
 
 
 // tu dien
@@ -39,7 +40,8 @@ $sql_create_module[] = "CREATE TABLE `" . $db_config['prefix'] . "_" . $lang . "
     `dichnghia` text COLLATE utf8mb4_unicode_ci NOT NULL,
     `createddate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `active` int(11) NOT NULL,
-    PRIMARY KEY (`tudien_id`),
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+    INDEX (tudien_id,fk_maloai),
+    PRIMARY KEY (`tudien_id`)
+) ENGINE=MyISAM";
 
 ?>
