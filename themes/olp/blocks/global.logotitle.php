@@ -27,7 +27,7 @@ if (!nv_function_exists('nv_menu_theme_logotitle')) {
         $xtpl = new XTemplate('global.logotitle.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/blocks');
         $xtpl->assign('GLANG', $lang_global);
         $xtpl->assign('URLSITE', NV_BASE_SITEURL);
-        $xtpl->assign('IMG_LOGO', NV_BASE_SITEURL.'/assets/images/logo_olp.jpeg');
+        $xtpl->assign('IMG_LOGO', NV_BASE_SITEURL.'assets/images/logo_olp.jpeg');
 
 
         $xtpl->parse('main');

@@ -21,3 +21,8 @@
         </script>
     </head>
     <body>
+    <div id="menu_fixed">
+        [ICON]
+        [MENU_FIXED]
+    </div>
+    <div class="outer_wrap">
